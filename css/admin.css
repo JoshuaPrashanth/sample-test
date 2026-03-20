@@ -1,0 +1,407 @@
+body.dark-yellow {
+    --bg-primary: #0a0a0a;
+    --bg-card: rgba(18, 18, 18, 0.95);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --text-muted: #6b6b6b;
+    --accent: #fbbf24;
+    --accent-hover: #f59e0b;
+    --border: #2a2a2a;
+    --border-light: #333333;
+    --input-bg: #1a1a1a;
+    --input-focus: #fbbf24;
+    --btn-text: #0a0a0a;
+    --icon-color: #a3a3a3;
+    --badge-pending-bg: rgba(251, 191, 36, 0.15);
+    --badge-pending-text: #fbbf24;
+    --badge-resolved-bg: rgba(34, 197, 94, 0.15);
+    --badge-resolved-text: #4ade80;
+    --badge-rejected-bg: rgba(239, 68, 68, 0.15);
+    --badge-rejected-text: #ef4444;
+    --badge-progress-bg: rgba(59, 130, 246, 0.15);
+    --badge-progress-text: #60a5fa;
+}
+
+body.light-yellow {
+    --bg-primary: #fef9e7;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --text-primary: #1e1e1e;
+    --text-secondary: #4b4b4b;
+    --text-muted: #7a7a7a;
+    --accent: #fbbf24;
+    --accent-hover: #f59e0b;
+    --border: #ffe3a3;
+    --border-light: #ffd985;
+    --input-bg: #ffffff;
+    --input-focus: #f59e0b;
+    --btn-text: #1e1e1e;
+    --icon-color: #92400e;
+    --badge-pending-bg: #fef3c7;
+    --badge-pending-text: #b45309;
+    --badge-resolved-bg: #dcfce7;
+    --badge-resolved-text: #166534;
+    --badge-rejected-bg: #fee2e2;
+    --badge-rejected-text: #b91c1c;
+    --badge-progress-bg: #dbeafe;
+    --badge-progress-text: #1e40af;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.2s;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(251, 191, 36, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.dashboard {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.theme-toggle {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--icon-color);
+    transition: all 0.2s;
+}
+
+.theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.theme-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+body.dark-yellow .theme-toggle .sun-icon { display: block; }
+body.dark-yellow .theme-toggle .moon-icon { display: none; }
+body.light-yellow .theme-toggle .sun-icon { display: none; }
+body.light-yellow .theme-toggle .moon-icon { display: block; }
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.25rem;
+    border-radius: 2.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    border: none;
+    line-height: 1;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--btn-text);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(251, 191, 36, 0.5);
+}
+
+.dashboard-main h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.complaints-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.complaint-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.complaint-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.complaint-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    word-break: break-word;
+}
+
+.complaint-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.status-pending {
+    background: var(--badge-pending-bg);
+    color: var(--badge-pending-text);
+    border: 1px solid currentColor;
+}
+
+.status-resolved {
+    background: var(--badge-resolved-bg);
+    color: var(--badge-resolved-text);
+    border: 1px solid currentColor;
+}
+
+.status-rejected {
+    background: var(--badge-rejected-bg);
+    color: var(--badge-rejected-text);
+    border: 1px solid currentColor;
+}
+
+.status-in-progress {
+    background: var(--badge-progress-bg);
+    color: var(--badge-progress-text);
+    border: 1px solid currentColor;
+}
+
+.complaint-meta {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-light);
+}
+
+.complaint-meta p {
+    margin: 0.25rem 0;
+    color: var(--text-secondary);
+}
+
+.complaint-meta strong {
+    color: var(--text-primary);
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.btn-resolve, .btn-reject {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 2rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+}
+
+.btn-resolve {
+    background: #10b981;
+}
+
+.btn-resolve:hover {
+    background: #059669;
+}
+
+.btn-reject {
+    background: #ef4444;
+}
+
+.btn-reject:hover {
+    background: #dc2626;
+}
+
+.loading-state,
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    background: var(--bg-card);
+    border-radius: 2rem;
+    border: 1px dashed var(--border);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modal-actions .btn {
+    flex: 1;
+    padding: 0.75rem;
+    font-weight: 600;
+    border-radius: 3rem;
+    transition: all 0.2s;
+    text-align: center;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 1rem;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-actions {
+        justify-content: space-between;
+    }
+
+    .complaints-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,101 @@
+Student Complaint Management System
+Instructions for Use
+
+1. System Overview
+
+This application is a web-based system that allows students to submit complaints and track their status. An administrator can view all complaints, update their status, and manage the system.
+
+The system runs in a web browser and is connected to a Firebase backend for authentication and data storage.
+
+---
+
+2. How to Run the Application
+
+1. Extract the project folder.
+2. Open the folder in a code editor (such as VS Code).
+3. Install and run a Live Server extension (or any local server).
+4. Right-click on index.html and select “Open with Live Server”.
+
+The application will open in your browser.
+
+---
+
+3. Login Process
+
+All users (students and admin) log in through the same login page.
+
+- Open the application (index.html)
+- Enter email and password
+- Click “Login”
+
+Access is automatically redirected based on user role.
+
+---
+
+4. Admin Access
+
+Use the following credentials to access the admin panel:
+
+Email: [Provide Admin Email]
+Password: [Provide Password]
+
+After login, you will be redirected to the admin dashboard.
+
+---
+
+5. Admin Functions
+
+The administrator can perform the following actions:
+
+- View all complaints submitted by students
+- View student details (name and phone number)
+- Update complaint status:
+  - Pending
+  - Resolved
+  - Rejected
+
+Complaints are displayed with the most recent entries at the top.
+
+Note:
+Complaints are not deleted during normal use. Instead, their status is updated for record-keeping and transparency.
+
+---
+
+6. Student Usage
+
+Students must first register an account.
+
+Steps:
+1. Click on “Register”
+2. Enter name, email, password, and phone number
+3. Submit the form
+4. Login using registered credentials
+
+After login, students can:
+
+- Submit a new complaint
+- View their own complaints
+- Edit existing complaints
+- Delete complaints
+- Track complaint status
+
+---
+
+7. Complaint Workflow
+
+- A student submits a complaint
+- The complaint is stored with status “Pending”
+- The admin reviews the complaint
+- The admin updates the status to “Resolved” or “Rejected”
+- The student can view the updated status in their dashboard
+
+---
+
+8. Important Notes
+
+- Each student can only view their own complaints
+- Only the admin can view all complaints
+- Internet connection is required for Firebase services
+- Do not modify Firebase configuration files unless necessary
+
+---

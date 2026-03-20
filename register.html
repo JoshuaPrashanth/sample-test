@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register · Student Complaint System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+<body class="dark-yellow">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+
+    <main class="login-container">
+        <div class="login-card">
+            <h1>Create Account</h1>
+            <p class="subtitle">Register as a student</p>
+
+            <form id="registerForm">
+                <div class="input-group">
+                    <input type="text" id="name" placeholder=" " required />
+                    <label for="name">Full Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required />
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="tel" id="phone" placeholder=" " required />
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder=" " required />
+                    <label for="password">Password</label>
+                </div>
+                <button type="submit" class="login-btn">Register</button>
+            </form>
+
+            <p class="register-text">
+                Already have an account? <a href="../index.html">Login here</a>
+            </p>
+        </div>
+    </main>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Success</h3>
+            <p id="modalMessage" style="margin: 1rem 0; color: var(--text-secondary);">Registration successful!</p>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-primary" id="modalCloseBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/theme.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+</body>
+</html>
