@@ -352,13 +352,15 @@ body.light-yellow input:-webkit-autofill {
     -webkit-text-fill-color: #1e1e1e !important;
     box-shadow: inset 0 0 20px 20px #ffffff !important;
 }
-
 .password-group {
     position: relative;
 }
 
 .password-group input {
-    padding-right: 2.5rem;   
+    padding-right: 2.5rem;
+}
+
+.password-toggle {
     position: absolute;
     right: 0.75rem;
     top: 50%;
@@ -387,6 +389,7 @@ body.light-yellow input:-webkit-autofill {
 .password-toggle .eye-open {
     display: block;
 }
+
 .password-toggle .eye-closed {
     display: none;
 }
@@ -394,7 +397,7 @@ body.light-yellow input:-webkit-autofill {
 .password-toggle.showing .eye-open {
     display: none;
 }
+
 .password-toggle.showing .eye-closed {
     display: block;
 }
-
